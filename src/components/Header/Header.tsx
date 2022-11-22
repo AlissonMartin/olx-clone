@@ -1,9 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { isLogged } from '../../helpers/AuthHandler'
+import { isLogged, doLogout } from '../../helpers/AuthHandler'
 import { HeaderContainer, NavBar, NavButton, NavItem, NavLogo } from './HeaderElements'
 
 const Header = () => {
+
+  const handleLogout = ()=> {
+    doLogout()
+    window.location.href = '/'
+  }
   let logged = isLogged()
   return (
     <HeaderContainer>
@@ -15,7 +20,7 @@ const Header = () => {
         <>
           <NavItem>My account</NavItem>
           <NavItem>About</NavItem>
-          <NavItem>Help</NavItem>
+          <NavItem><button onClick={handleLogout}>Sair</button></NavItem>
         </>
         }
         {!logged &&

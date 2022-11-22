@@ -24,6 +24,14 @@ export const NavBar = styled.ul`
 
 export const NavItem = styled.li`
   cursor: pointer;
+
+  button {
+    border: 0;
+    background:none;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
 `
 
 export const NavButton = styled(Button)`

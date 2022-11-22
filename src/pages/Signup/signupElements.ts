@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { PageContainer } from "../../components/common/PageContainer";
 
-export const SignInPage = styled(PageContainer)`
+export const SignUpPage = styled(PageContainer)`
     max-width: 380px;
 `
 
-export const SignInTitle = styled.h1`
+export const SignUpTitle = styled.h1`
     font-size: 1.6rem;
     margin-bottom: 12px;
 `
@@ -51,6 +51,11 @@ export const Input = styled.input`
     border: 1px solid #ddd;
     border-radius: 3px;
     outline: none;
+    transition: all ease .2s;
+
+    &:focus {
+        border: 1px solid #333;
+    }
 `
 
 export const SubmitButton = styled.input`
@@ -76,4 +81,17 @@ export const InputCheck = styled.input`
     width: 1.6rem;
     height: 1.6rem;
     margin-left: 1rem;
+`
+
+export const SelectInput = styled.select`
+margin: 12px 0;
+background-color: white;
+height: 36px;
+width: 160px;
+padding: 4px;
+`
+
+export const SelectInputArea = styled.div`
+display: flex;
+justify-content: center;
 `
