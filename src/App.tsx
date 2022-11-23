@@ -1,6 +1,6 @@
 import React from 'react';
 import { GlobalStyle } from "./globalStyles";
-import Home from './pages/Home/Home';
+import HomeContainer from './pages/Home/Home';
 import MainRoutes from './routes/routes';
 
 

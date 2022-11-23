@@ -30,7 +30,7 @@ const Header = () => {
         </>
         }
 
-        <NavItem><NavButton>Post an ad+</NavButton></NavItem>
+      <NavButton>Post an ad+</NavButton>
       </NavBar>
     </HeaderContainer>
   )

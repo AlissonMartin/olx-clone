@@ -31,15 +31,22 @@ export const NavItem = styled.li`
     text-decoration: none;
     cursor: pointer;
     font-size: 1rem;
+
+    &:hover {
+      color: purple;
+    }
+  }
+
+  &:hover {
+    color: purple;
   }
 `
 
 export const NavButton = styled(Button)`
-  background-color: orange;
   cursor: pointer;
-
+  background-color: black;
   &:hover {
-    background-color: 	rgba(255, 180, 0);
+    background-color: 	rgba(40, 40, 40);
   }
 `
 
