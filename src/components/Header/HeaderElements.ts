@@ -3,15 +3,12 @@ import { Button } from '../common/Button'
 
 export const HeaderContainer = styled.header`
     display: flex;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
     padding: 12px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.267);
+    background-color: purple;
 `
 
 export const NavBar = styled.ul`

@@ -65,6 +65,11 @@ const OlxApi = {
         return json
     },
 
+    getCategories: async ()=> {
+        const response = await fetch('http://localhost:5000/categories')
+        const json = response.json()
+        return json
+    }
 }
 
 

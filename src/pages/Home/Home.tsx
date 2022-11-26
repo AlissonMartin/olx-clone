@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { PageContainer } from '../../components/common/PageContainer'
 import Header from '../../components/Header/Header'
-import { HomeContainer, InputSearch, SearchArea, SubmitButton } from './HomeElements'
+import { AdItem, CategoriesContainer, CategoryItem, HomeContainer, InputSearch, MainContainer, SearchArea, SubmitButton } from './HomeElements'
 import OlxApi from '../../helpers/olxApi'
+import Footer from '../../components/Footer/Footer'
 
 
 
 const Home = () => {
   let api = OlxApi
+  const navigate = useNavigate()
 
   const [q, setQ] = useState('')
   const [stateList, setStateList] = useState<any[]>([])
   const [recentAdsList, setRecentAdsList] = useState<any[]>([])
+  const [categoriesList, setCategoriesList] =  useState<any[]>([])
   const [stateLoc, setStateLoc] = useState('')
 
   useEffect(()=> {
@@ -29,10 +33,17 @@ const Home = () => {
     }
     getRecentAds()
   }, [])
+  useEffect(()=> {
+    const getCategories = async ()=> {
+      const json = await api.getCategories()
+      setCategoriesList(json.categories)
+    }
+    getCategories()
+  },[])
 
   return (
     <HomeContainer>
-      <Header></Header>
+      <Header/>
       <PageContainer>
         <SearchArea>
           <form  method='GET' action='/ads'>
@@ -45,7 +56,24 @@ const Home = () => {
             <SubmitButton type='submit' value=''></SubmitButton>
           </form>
         </SearchArea>
+        <CategoriesContainer>
+          {categoriesList.map((i, k)=>
+            <CategoryItem key={k} onClick={()=> { navigate(`/ads?cat=${i.slug}`) }}>
+              <img src={i.img} alt=""/>
+              <p>{i.name}</p>
+            </CategoryItem>
+          )}
+        </CategoriesContainer>
+        <MainContainer>
+            {recentAdsList.map((i, k)=>
+              <AdItem key={k}>
+                <img src={`http://localhost:5000/${i.image}`} />
+                <h3>{i.title}</h3> <span>R$ {i.price},00</span>
+              </AdItem>
+            )}
+        </MainContainer>
       </PageContainer>
+      <Footer/>
     </HomeContainer>
 
   )
