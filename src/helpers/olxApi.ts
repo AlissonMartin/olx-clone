@@ -60,13 +60,18 @@ const OlxApi = {
         return json
     },
 
-    getAds: async (options: { state?: string, q?: string, sort?: string, offset?: number, cat?: string, limit?:number })=> {
+    getAds: async (options: { state?: string, q?: string, sort?: string, offset?: number, cat?: string, limit?:number, priceNeg?:number, order?:string})=> {
         const json = await adsFetchGet('/ad/list', options)
         return json
     },
 
     getCategories: async ()=> {
         const response = await fetch('http://localhost:5000/categories')
+        const json = response.json()
+        return json
+    },
+    getAd : async (id:string)=> {
+        const response = await fetch(`http://localhost:5000/ad/${id}`)
         const json = response.json()
         return json
     }

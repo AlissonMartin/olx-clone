@@ -21,6 +21,7 @@ export const NavBar = styled.ul`
 
 export const NavItem = styled.li`
   cursor: pointer;
+  color: white;
 
   button {
     border: 0;
@@ -28,6 +29,7 @@ export const NavItem = styled.li`
     text-decoration: none;
     cursor: pointer;
     font-size: 1rem;
+    color: white;
 
     &:hover {
       color: purple;
@@ -41,9 +43,10 @@ export const NavItem = styled.li`
 
 export const NavButton = styled(Button)`
   cursor: pointer;
-  background-color: black;
+  background-color: #35800D;
+
   &:hover {
-    background-color: 	rgba(40, 40, 40);
+    background-color: #30730B;
   }
 `
 

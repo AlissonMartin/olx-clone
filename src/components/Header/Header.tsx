@@ -18,8 +18,7 @@ const Header = () => {
       <NavBar>
         {logged &&
         <>
-          <NavItem>My account</NavItem>
-          <NavItem>About</NavItem>
+          <NavItem>Minha Conta</NavItem>
           <NavItem><button onClick={handleLogout}>Sair</button></NavItem>
         </>
         }
@@ -30,7 +29,7 @@ const Header = () => {
         </>
         }
 
-      <NavButton>Post an ad+</NavButton>
+      <NavButton>Anunciar +</NavButton>
       </NavBar>
     </HeaderContainer>
   )

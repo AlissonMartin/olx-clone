@@ -3,7 +3,6 @@ import { Button } from '../../components/common/Button'
 import svgPesquisar from '../../assets/icons8-pesquisar.svg'
 
 export const HomeContainer = styled.div`
-
 `
 
 export const SearchArea = styled.div`
@@ -15,6 +14,7 @@ export const SearchArea = styled.div`
         align-items: center;
         gap: 8px;
         border: 2px solid grey;
+        margin: 0 32px;
 
         select {
             height: 100%;
@@ -90,6 +90,7 @@ export const AdItem = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
+    cursor: pointer;
 
     img {
         flex: 1;
@@ -101,5 +102,73 @@ export const AdItem = styled.div`
     }
     span {
         text-align: center;
+    }
+`
+
+export const MostViewedContainer = styled.div`
+    margin: 48px 0;
+    height: 500px;
+    background-color: lightgrey;
+    padding: 64px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 48px;
+
+    h2 {
+        font-size: 2.2rem;
+    }
+`
+
+export const MostViewedWrapper = styled.div`
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+`
+
+export const AdItemSmaller = styled(AdItem)`
+    height: 160px;
+    width: 192px;
+
+    h3 {
+        font-size: 0.9rem; 
+    }
+
+    p {
+        font-size: 0.75rem;
+    }
+`
+
+export const ModelBoxContainer = styled.div`
+    margin: 0 auto;
+    max-width: 640px;
+`
+
+export const ModelBox = styled.div`
+    display: flex;
+    background-color: purple;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 32px;
+    box-shadow: 0px 0px 3px black;
+`
+
+export const LeftSide = styled.div`
+    flex: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+
+
+`
+
+export const RightSide = styled.div`
+
+    img {
+        width: 320px;
     }
 `

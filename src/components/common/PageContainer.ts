@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const PageContainer = styled.div`
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     background-color: white;
-    padding: 100px 32px;
+    padding: 100px 0;
 `
