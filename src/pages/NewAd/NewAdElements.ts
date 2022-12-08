@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { PageContainer } from "../../components/common/PageContainer";
 
-export const SignInPage = styled(PageContainer)`
-    max-width: 420px;
+export const NewAdPage = styled(PageContainer)`
+    max-width: 1200px;
     padding: 24px;
 `
 
-export const SignInTitle = styled.h1`
+export const PageTitle = styled.h1`
     font-size: 1.6rem;
     margin-bottom: 12px;
 `
 
 export const FormsArea = styled.div`
-    
+
     form {
         background-color: #fff;
         border-radius: 3px;
@@ -21,6 +21,7 @@ export const FormsArea = styled.div`
         display: flex;
         flex-direction: column;
         gap: 8px;
+
     }
 
     label {
@@ -43,6 +44,21 @@ export const LabelTitle = styled.label`
 
 export const InputArea = styled.div`
     flex: 1;
+
+    input {
+    width: 100%;
+    height: 2.6rem;
+    font-size: 1.1rem;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    outline: none;
+    transition: all ease .2s;
+
+    &:focus {
+        border: 1px solid #333;
+    }
+    }
 `
 
 export const Input = styled.input`
@@ -53,6 +69,11 @@ export const Input = styled.input`
     border: 1px solid #ddd;
     border-radius: 3px;
     outline: none;
+    transition: all ease .2s;
+
+    &:focus {
+        border: 1px solid #333;
+    }
 `
 
 export const SubmitButton = styled.input`
@@ -78,4 +99,21 @@ export const InputCheck = styled.input`
     width: 1.6rem;
     height: 1.6rem;
     margin-left: 1rem;
+`
+
+export const SelectInput = styled.select`
+margin: 12px 0;
+background-color: white;
+height: 36px;
+padding: 4px;
+`
+
+export const SelectInputArea = styled.div`
+display: flex;
+`
+
+export const TextArea = styled.textarea`
+    width: 100%;
+    height: 144px;
+    resize: none;
 `

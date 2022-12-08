@@ -42,6 +42,22 @@ const adsFetchGet = async (endpoint: string, params?: { state?: string, q?: stri
     return json
 }
 
+const newAdFetchPost = async (body:FormData)=> {
+        let token = Cookies.get('token')
+        if (token) {
+            body.append('token', token)
+        }
+    
+
+        let response = await fetch('http://localhost:5000/ad/add', {
+        method: 'POST',
+        body
+    })
+    const json = await response.json()
+    return json
+
+}
+
 const OlxApi = {
 
     login: async (email:string, password:string)=> {
@@ -73,6 +89,10 @@ const OlxApi = {
     getAd : async (id:string)=> {
         const response = await fetch(`http://localhost:5000/ad/${id}`)
         const json = response.json()
+        return json
+    },
+    NewAd: async (fData:FormData) => {
+        const json = await newAdFetchPost(fData)
         return json
     }
 }

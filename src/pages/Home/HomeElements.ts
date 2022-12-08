@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Button } from '../../components/common/Button'
 import svgPesquisar from '../../assets/icons8-pesquisar.svg'
+import { AdItem } from "../../components/common/AdItem";
 
 export const HomeContainer = styled.div`
 `
@@ -84,32 +84,13 @@ export const MainContainer = styled.div`
     gap: 16px;
 `
 
-export const AdItem = styled.div`
-    width: 260px;
-    height: 320px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    cursor: pointer;
 
-    img {
-        flex: 1;
-        border-radius: 4px;
-    }
-
-    h3 {
-        text-align: center;
-    }
-    span {
-        text-align: center;
-    }
-`
 
 export const MostViewedContainer = styled.div`
     margin: 48px 0;
-    height: 500px;
+    min-height: 500px;
     background-color: lightgrey;
-    padding: 64px 48px;
+    padding: 96px 48px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -122,14 +103,15 @@ export const MostViewedContainer = styled.div`
 
 export const MostViewedWrapper = styled.div`
     display: flex;
-    gap: 12px;
+    gap: 96px;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 `
 
 export const AdItemSmaller = styled(AdItem)`
-    height: 160px;
-    width: 192px;
+    height: 144px;
+    width: 160px;
 
     h3 {
         font-size: 0.9rem; 
@@ -169,6 +151,6 @@ export const LeftSide = styled.div`
 export const RightSide = styled.div`
 
     img {
-        width: 320px;
+        max-width: 320px;
     }
 `

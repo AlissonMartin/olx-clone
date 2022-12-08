@@ -68,7 +68,7 @@ const SignUp = () => {
                   </InputArea>
                   <SelectInputArea>
                     <SelectInput value={stateLoc} onChange={e=> setStateLoc(e.target.value)} required>
-                        <option value="" disabled selected>Selecione seu estado</option>
+                        <option value="" disabled>Selecione seu estado</option>
                           {stateList.map((i, k) =>
                               <option key={k} value={i.name}>{i.name}</option>
                           )}

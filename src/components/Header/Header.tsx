@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { isLogged, doLogout } from '../../helpers/AuthHandler'
 import { HeaderContainer, NavBar, NavButton, NavItem, NavLogo } from './HeaderElements'
 
 const Header = () => {
+
+  const navigate = useNavigate()
 
   const handleLogout = ()=> {
     doLogout()
@@ -19,7 +21,7 @@ const Header = () => {
         {logged &&
         <>
           <NavItem>Minha Conta</NavItem>
-          <NavItem><button onClick={handleLogout}>Sair</button></NavItem>
+          <NavItem onClick={handleLogout}>Sair</NavItem>
         </>
         }
         {!logged &&
@@ -29,7 +31,7 @@ const Header = () => {
         </>
         }
 
-      <NavButton>Anunciar +</NavButton>
+      <NavButton onClick={()=> { navigate('/newad') }}>Anunciar +</NavButton>
       </NavBar>
     </HeaderContainer>
   )

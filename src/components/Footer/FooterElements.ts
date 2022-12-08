@@ -9,4 +9,15 @@ export const FooterContainer = styled.footer`
     width: 100vw;
     color: white;
     font-weight: bold;
+    position: relative;
+`
+export const Socials = styled.div`
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+
+    img {
+        width: 30px;
+        margin: 0 8px;
+    }
 `

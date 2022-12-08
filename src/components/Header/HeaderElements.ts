@@ -6,9 +6,9 @@ export const HeaderContainer = styled.header`
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
-    padding: 12px;
+    padding: 18px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.267);
-    background-color: purple;
+    background-color: rgb(249, 249, 249);
 `
 
 export const NavBar = styled.ul`
@@ -17,11 +17,12 @@ export const NavBar = styled.ul`
   gap: 24px;
   margin: 0 24px;
   align-items: center;
+  color: #4A4A4A;
 `
 
 export const NavItem = styled.li`
   cursor: pointer;
-  color: white;
+  color: #4A4A4A;
 
   button {
     border: 0;

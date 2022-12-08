@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { PageContainer } from '../../components/common/PageContainer'
 import Header from '../../components/Header/Header'
-import { AdItem, AdItemSmaller, CategoriesContainer, CategoryItem, HomeContainer, InputSearch, LeftSide, MainContainer, ModelBox, ModelBoxContainer, MostViewedContainer, MostViewedWrapper, RightSide, SearchArea, SubmitButton } from './HomeElements'
+import { AdItemSmaller, CategoriesContainer, CategoryItem, InputSearch, LeftSide, MainContainer, ModelBox, ModelBoxContainer, MostViewedContainer, MostViewedWrapper, RightSide, SearchArea, SubmitButton } from './HomeElements'
+import { AdItem } from '../../components/common/AdItem'
 import OlxApi from '../../helpers/olxApi'
 import Footer from '../../components/Footer/Footer'
 import AboutUsImage from '../../assets/images/home.png'
@@ -60,7 +61,7 @@ const Home = () => {
           <form  method='GET' action='/ads'>
             <InputSearch type="text" name='q' placeholder='O que você procura?' value={q} onChange={e=> setQ(e.target.value)}/>
             <select name="state" onChange={e=> setStateLoc(e.target.value)}>
-              <option value='' selected></option>
+              <option value='' ></option>
               {stateList.map((i, k)=> 
               <option key={k} value={i.name}>{i.name}</option>
               )}
@@ -78,8 +79,8 @@ const Home = () => {
         </CategoriesContainer>
         <MainContainer>
             {recentAdsList.map((i, k)=>
-              <Link to={`/ad/${i.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-                <AdItem key={k}>
+              <Link to={`/ad/${i.id}`} style={{ textDecoration: 'none', color: 'black' }} key={k}>
+                <AdItem >
                   <img src={`http://localhost:5000/${i.image}`} />
                   <h3>{i.title}</h3> <span>R$ {i.price},00</span>
                 </AdItem>
@@ -90,8 +91,8 @@ const Home = () => {
           <h2>Anúncios mais visualizados</h2>
           <MostViewedWrapper>
             {mostViewedAdsList.map((i,k)=>
-              <Link to={`/ad/${i.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-                <AdItemSmaller key={k}>
+              <Link to={`/ad/${i.id}`} style={{ textDecoration: 'none', color: 'black' }} key={k}>
+                <AdItemSmaller >
                   <img src={`http://localhost:5000/${i.image}`} alt="" />
                   <h3>{i.title}</h3>
                   <p>R$ {i.price},00</p>

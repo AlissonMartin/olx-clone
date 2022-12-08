@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { PageContainer } from "../../components/common/PageContainer";
 
 export const SignUpPage = styled(PageContainer)`
-    max-width: 380px;
+    max-width: 420px;
+    padding: 24px;
 `
 
 export const SignUpTitle = styled.h1`
