@@ -5,11 +5,11 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Nunito Sans', sans-serif;;
  }
 
  body {
-   background-color: purple;
+   background-color: #7D2696;
    overflow-x: hidden
  }
 `

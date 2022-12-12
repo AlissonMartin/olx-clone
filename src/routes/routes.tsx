@@ -6,6 +6,7 @@ import SignIn from "../pages/SignIn/SignIn";
 import SignUp from "../pages/Signup/Signup";
 import AdPage from '../pages/AdPage/AdPage'
 import NewAd from "../pages/NewAd/NewAd";
+import Ads from "../pages/Ads/Ads";
 
 const MainRoutes = () => {
     return (
@@ -18,6 +19,7 @@ const MainRoutes = () => {
             <Route element={<PrivateRoutes/>}>
                 <Route path="/newad" element={<NewAd/>}/>
             </Route>
+            <Route path="/ads" element={<Ads/>}/>
         </Routes>
     )
 

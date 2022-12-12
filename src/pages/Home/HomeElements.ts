@@ -2,8 +2,7 @@ import styled from "styled-components";
 import svgPesquisar from '../../assets/icons8-pesquisar.svg'
 import { AdItem } from "../../components/common/AdItem";
 
-export const HomeContainer = styled.div`
-`
+
 
 export const SearchArea = styled.div`
 
@@ -74,6 +73,9 @@ export const CategoryItem = styled.div`
     min-width: 80px;
     cursor: pointer;
 
+    &:hover {
+        color: purple;
+    }
 `
 
 export const MainContainer = styled.div`

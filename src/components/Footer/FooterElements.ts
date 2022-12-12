@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
-    background-color: #1C253A;
+    border-top: 1px solid rgba(0, 0, 0, 0.267);
+    background-color: purple;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,5 +20,6 @@ export const Socials = styled.div`
     img {
         width: 30px;
         margin: 0 8px;
+        cursor: pointer;
     }
 `

@@ -26,8 +26,8 @@ const Header = () => {
         }
         {!logged &&
         <>
-          <NavItem>Login</NavItem>
-          <NavItem>Cadastrar</NavItem>
+          <Link to={'/signin'} style={{ textDecoration: 'none', color: 'black' }}><NavItem>Entrar</NavItem></Link>
+          <Link to={'/signup'} style={{ textDecoration: 'none', color: 'black' }}><NavItem>Cadastrar</NavItem></Link>
         </>
         }
 

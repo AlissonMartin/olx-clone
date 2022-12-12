@@ -32,7 +32,7 @@ const Home = () => {
 
   useEffect(()=> {
     const getRecentAds = async ()=> {
-      const json = await api.getAds({limit:9, sort:'desc'})
+      const json = await api.getAds({limit:8, sort:'desc'})
       setRecentAdsList(json.ads)
     }
     getRecentAds()
