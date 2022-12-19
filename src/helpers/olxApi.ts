@@ -1,6 +1,8 @@
 import Cookies from "js-cookie"
 import qs from 'qs'
 
+const BASEURL = 'http://localhost:5000'
+
 const loginFetchPost = async(endpoint: string, body: {email:string, password:string, token?:string})=> {
     if (!body.token) {
         let token = Cookies.get('token')
@@ -13,7 +15,7 @@ const loginFetchPost = async(endpoint: string, body: {email:string, password:str
     formBody.set('email',body.email)
     formBody.set('password',body.password)
 
-    const res = await fetch(`http://localhost:5000${endpoint}`, {
+    const res = await fetch(`${BASEURL}${endpoint}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -25,7 +27,7 @@ const loginFetchPost = async(endpoint: string, body: {email:string, password:str
 }
 
 const signupFetchPost = async (endpoint:string, body: {name:string, email:string, password:string, state:string})=> {
-    const res = await fetch(`http://localhost:5000${endpoint}`, {
+    const res = await fetch(`${BASEURL}${endpoint}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -37,7 +39,7 @@ const signupFetchPost = async (endpoint:string, body: {name:string, email:string
 }
 
 const adsFetchGet = async (endpoint: string, params?: { state?: string, q?: string, sort?: string, offset?: number, cat?: string, limit?:number })=> {
-    const res = await fetch(`http://localhost:5000${endpoint}?${qs.stringify(params)}`)
+    const res = await fetch(`${BASEURL}${endpoint}?${qs.stringify(params)}`)
     const json = await res.json()
     return json
 }
@@ -58,6 +60,18 @@ const newAdFetchPost = async (body:FormData)=> {
 
 }
 
+const editInfoFetchPut = async (body:FormData)=> {
+    const token = Cookies.get('token')
+
+    if (token) {
+        body.append('token', token)
+    }
+
+    let response = await fetch(`${BASEURL}/user/me`, { method: 'PUT', body })
+    let json = response.json()
+    return json
+}
+
 const OlxApi = {
 
     login: async (email:string, password:string)=> {
@@ -71,7 +85,7 @@ const OlxApi = {
     },
 
     getStates: async ()=> {
-        let response = await fetch('http://localhost:5000/states')
+        let response = await fetch(`${BASEURL}/states`)
         let json = response.json()
         return json
     },
@@ -82,17 +96,26 @@ const OlxApi = {
     },
 
     getCategories: async ()=> {
-        const response = await fetch('http://localhost:5000/categories')
+        const response = await fetch(`${BASEURL}/categories`)
         const json = response.json()
         return json
     },
     getAd : async (id:string)=> {
-        const response = await fetch(`http://localhost:5000/ad/${id}`)
+        const response = await fetch(`${BASEURL}/ad/${id}`)
         const json = response.json()
         return json
     },
     NewAd: async (fData:FormData) => {
         const json = await newAdFetchPost(fData)
+        return json
+    },
+    getInfo: async (params: {token:string, status?: 1 | 0}) => {
+        const response = await fetch(`${BASEURL}/user/me?${qs.stringify(params)}`)
+        const json = await response.json()
+        return json
+    },
+    editInfo: async (fData:FormData)=> {
+        const json = await editInfoFetchPut(fData)
         return json
     }
 }

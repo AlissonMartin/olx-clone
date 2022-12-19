@@ -7,7 +7,7 @@ import  twitterLogo  from '../../assets/733635.png'
 const Footer = () => {
   return (
     <FooterContainer>
-      All rights reserved <br /> Alisson Olhos Inc
+      All rights reserved <br />Olhos Inc.
       <Socials>
         <img src={facebookLogo} alt="" />
         <img src={twitterLogo} alt="" />

@@ -1,10 +1,13 @@
-import React from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { isLogged, doLogout } from '../../helpers/AuthHandler'
 import { HeaderContainer, NavBar, NavButton, NavItem, NavLogo } from './HeaderElements'
+import  Logo  from '../../assets/logo.png'
 
 const Header = () => {
 
+
+  const [isActive, setIsActive] = useState(false)
   const navigate = useNavigate()
 
   const handleLogout = ()=> {
@@ -12,15 +15,22 @@ const Header = () => {
     window.location.href = '/'
   }
   let logged = isLogged()
+
   return (
     <HeaderContainer>
       <Link to='/'>
-        <NavLogo src='/'/>
+        <NavLogo src={Logo}/>
       </Link>
       <NavBar>
         {logged &&
         <>
-          <NavItem>Minha Conta</NavItem>
+          <div onClick={()=> setIsActive(!isActive)} className="dropButton">
+            Minha Conta
+            <div className={isActive ? 'openMenu dropDown' : 'closedMenu dropDown'}>
+              <li onClick={()=> { navigate('/myaccount') }}>Meu perfil</li>
+              <li onClick={()=> { navigate('/myads') }}>Meus anúncios</li>
+            </div>
+          </div>
           <NavItem onClick={handleLogout}>Sair</NavItem>
         </>
         }

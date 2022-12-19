@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import { useNavigate, Link } from "react-router-dom";
-import { FormsArea, InputArea, Input, LabelTitle, SignInTitle, SubmitButton, SignInPage, ErrorMessage, InputCheck} from './SignInElements'
+import { Link } from "react-router-dom";
+import { FormsArea, InputArea, Input, LabelTitle, SignInTitle, SubmitButton, SignInPage, InputCheck} from './SignInElements'
+import ErrorMessage from '../../components/common/ErrorMessage';
 import useApi from '../../helpers/olxApi'
 import { doLogin } from '../../helpers/AuthHandler'
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { SignUpPage, FormsArea, SignUpTitle, LabelTitle, InputArea, Input, SubmitButton, SelectInput, SelectInputArea, ErrorMessage } from './signupElements'
+import { SignUpPage, FormsArea, SignUpTitle, LabelTitle, InputArea, Input, SubmitButton, SelectInput, SelectInputArea } from './signupElements'
+import ErrorMessage from '../../components/common/ErrorMessage'
 import {Link} from 'react-router-dom'
 import useApi from '../../helpers/olxApi'
 import { doLogin } from '../../helpers/AuthHandler'

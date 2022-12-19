@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Header from '../../components/Header/Header'
-import { NewAdPage, FormsArea, PageTitle, LabelTitle, InputArea, Input, SubmitButton, SelectInput, SelectInputArea, ErrorMessage, TextArea } from './NewAdElements'
+import { NewAdPage, FormsArea, PageTitle, LabelTitle, InputArea, Input, SubmitButton, SelectInput, SelectInputArea, TextArea } from './NewAdElements'
+import ErrorMessage from '../../components/common/ErrorMessage'
 import MaskedInput from 'react-text-mask'
 import { createNumberMask } from 'text-mask-addons'
 import useApi from '../../helpers/olxApi'
@@ -44,7 +45,7 @@ const NewAd = () => {
       errors.push('Adicione uma categoria')
     }
 
-    if (fileFieldRef.current?.files?.length == 0) {
+    if (fileFieldRef.current?.files?.length === 0) {
       errors.push('Adicione ao menos uma foto')
     }
 
@@ -61,7 +62,7 @@ const NewAd = () => {
           fData.append('photos', fileFieldRef.current?.files[i])
         }
       }
-
+      
       const json:any = await api.NewAd(fData)
       navigate(`/ad/${json.id}`)
     } else {
@@ -93,7 +94,7 @@ const NewAd = () => {
             <PageTitle>Crie um novo anúncio</PageTitle>
             <LabelTitle>Título</LabelTitle>
             <InputArea>
-              <Input type='text' disabled={disabled} value={title} onChange={e => setTitle(e.target.value)} required></Input>
+              <Input type='text' disabled={disabled} value={title} onChange={e => setTitle(e.target.value)} required maxLength={25}></Input>
             </InputArea>
             <SelectInputArea>
               <SelectInput onChange={e => setCategory(e.target.value)} required>
@@ -121,7 +122,7 @@ const NewAd = () => {
             <InputArea>
               <Input type='file' ref={fileFieldRef} disabled={disabled} multiple required></Input>
             </InputArea>
-            <SubmitButton type='submit' value='Fazer Cadastro'></SubmitButton>
+            <SubmitButton type='submit' value='Adicionar anúncio'></SubmitButton>
           </form>
         </FormsArea>
       </NewAdPage>

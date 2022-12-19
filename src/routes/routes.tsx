@@ -7,6 +7,8 @@ import SignUp from "../pages/Signup/Signup";
 import AdPage from '../pages/AdPage/AdPage'
 import NewAd from "../pages/NewAd/NewAd";
 import Ads from "../pages/Ads/Ads";
+import MyAds from "../pages/MyAds/MyAds";
+import MyAccount from "../pages/MyAccount/MyAccount";
 
 const MainRoutes = () => {
     return (
@@ -18,6 +20,8 @@ const MainRoutes = () => {
             <Route path="/ad/:id" element={<AdPage/>}></Route>
             <Route element={<PrivateRoutes/>}>
                 <Route path="/newad" element={<NewAd/>}/>
+                <Route path="/myads" element={<MyAds/>}/>
+                <Route path="/myaccount" element={<MyAccount/>}/>
             </Route>
             <Route path="/ads" element={<Ads/>}/>
         </Routes>

@@ -1,11 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import Header from "../../components/Header/Header"
 
 const NotFound = () => {
   return (
     <>
-        <h1>Página não encontrada</h1>
-        <Link to='/'>Voltar para a home</Link>
+    <Header/>
+      <h1>Página não encontrada</h1>
     </>
   )
 }

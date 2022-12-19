@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { PageContainer } from '../../components/common/PageContainer'
 import { SearchArea, InputSearch, SubmitButton, SearchBar, AdsContainer, AdWrapper, LeftSide, RightSide, Pagination } from './AdsElements'
 import Footer from '../../components/Footer/Footer'
@@ -128,13 +128,16 @@ const Ads = () => {
             <div className='warning'>Nenhum resultado encontrado</div>
           }
           {ads.map((i,k)=> 
-            <AdWrapper key={k}>
-              <LeftSide src={`http://localhost:5000/${i.image}`}></LeftSide>
-              <RightSide>
-                <h3>{i.title}</h3>
-                <h4>R$ {i.price},00</h4>
-              </RightSide>
-            </AdWrapper>
+            <Link to={`/ad/${i.id}`} key={k} style={{ textDecoration: 'none', color: '#4A4A4A' }}>
+              <AdWrapper >
+                <LeftSide src={`http://localhost:5000/${i.image}`}></LeftSide>
+                <RightSide>
+                  <h3>{i.title}</h3>
+                  <h4>R$ {i.price},00</h4>
+                  <h4>{i.state}</h4>
+                </RightSide>
+              </AdWrapper>
+            </Link>
           )}
         </AdsContainer>
         {pageCount > 1 &&

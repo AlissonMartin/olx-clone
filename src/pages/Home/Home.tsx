@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { PageContainer } from '../../components/common/PageContainer'
 import Header from '../../components/Header/Header'
@@ -8,7 +8,7 @@ import OlxApi from '../../helpers/olxApi'
 import Footer from '../../components/Footer/Footer'
 import AboutUsImage from '../../assets/images/home.png'
 import { Button } from '../../components/common/Button'
-
+import logo from '../../assets/logo.png'
 
 
 const Home = () => {
@@ -20,7 +20,6 @@ const Home = () => {
   const [recentAdsList, setRecentAdsList] = useState<any[]>([])
   const [mostViewedAdsList, setMostViewedAdsList] = useState<any[]>([])
   const [categoriesList, setCategoriesList] =  useState<any[]>([])
-  const [stateLoc, setStateLoc] = useState('')
 
   useEffect(()=> {
     const getStates = async () => {
@@ -57,10 +56,11 @@ const Home = () => {
     <>
       <Header/>
       <PageContainer>
+        <img src={logo} alt="" style={{display: 'block', margin: 'auto', maxWidth: '320px'}}/>
         <SearchArea>
           <form  method='GET' action='/ads'>
             <InputSearch type="text" name='q' placeholder='O que você procura?' value={q} onChange={e=> setQ(e.target.value)}/>
-            <select name="state" onChange={e=> setStateLoc(e.target.value)}>
+            <select name="state">
               <option value='' ></option>
               {stateList.map((i, k)=> 
               <option key={k} value={i.name}>{i.name}</option>
