@@ -72,6 +72,18 @@ const editInfoFetchPut = async (body:FormData)=> {
     return json
 }
 
+const deleteAdFetchDelete = async (params: {token: string, id: number})=> {
+    const response = await fetch(`${BASEURL}/ad/${params.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify(params)
+    })
+    const json = await response.json()
+    return json
+}
+
 const OlxApi = {
 
     login: async (email:string, password:string)=> {
@@ -116,6 +128,10 @@ const OlxApi = {
     },
     editInfo: async (fData:FormData)=> {
         const json = await editInfoFetchPut(fData)
+        return json
+    },
+    deleteAd: async (params: {token: string, id:number})=> {
+        const json = await deleteAdFetchDelete(params)
         return json
     }
 }

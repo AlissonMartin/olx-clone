@@ -33,10 +33,11 @@ export const LeftSide = styled.div`
             border-radius: 4px;
             cursor: pointer;
             transition: all ease .3s;
+            filter: blur(1px);
         }
 
         .active {
-            filter: blur(1px);
+            filter: none;
         }
     }
 `

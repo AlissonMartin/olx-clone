@@ -5,7 +5,7 @@ export const AdItem = styled.div`
     height: 320px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
     cursor: pointer;
 
     img {

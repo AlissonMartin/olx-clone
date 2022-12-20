@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react'
 import { PageContainer } from '../../components/common/PageContainer'
-import { MenuContainer, MenuBar, MenuItem, MainContainer } from './MyAdsElements'
+import { MenuContainer, MenuBar, MenuItem, MainContainer, EmptyContainer, DeleteButton } from './MyAdsElements'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import { AdItem } from '../../components/common/AdItem'
 import OlxApi from '../../helpers/olxApi'
 import Cookies from 'js-cookie'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const MyAds = () => {
   const api = OlxApi
+  const navigate = useNavigate()
 
   const [ads, setAds] = useState<any[]>([])
   const [currentOption, setCurrentOption] = useState(true)
@@ -27,11 +28,16 @@ const MyAds = () => {
     getInfo(1)
   },[])
 
-  console.log(ads)
+  const handleDelete = async(id:number)=> {
+    if (token) {
+      const json = await api.deleteAd({ token, id })
+      navigate(0)
+    }
+  }
   return (
     <>
         <Header/>
-        <PageContainer>
+        <PageContainer style={{ minHeight: '80vh' }}>
             <MenuContainer>
               <MenuBar>
                 <MenuItem className={currentOption === true ? 'active' : ''} onClick={() => { setCurrentOption(true); getInfo(1) }}>Anúncios Ativos</MenuItem>
@@ -42,14 +48,21 @@ const MyAds = () => {
             {ads.length > 0 &&
               <MainContainer>
                 {ads.map((i, k)=>
-                  <Link to={`/ad/${i.id}`} style={{ textDecoration: 'none', color: 'black' }} key={k}>
-                    <AdItem >
-                      <img src={`http://localhost:5000/${i.image}`} />
+                    <AdItem style={{position: 'relative'}} key={k}>
+                      <DeleteButton onClick={()=> {handleDelete(i.id)}}>
+                        <div className='topBar'></div>
+                        <div className='bottomBar'></div>
+                      </DeleteButton>
+                      <img src={`http://localhost:5000/${i.image}`} onClick={()=> {navigate(`/ad/${i.id}`)}}/>
                       <h3>{i.title}</h3> <span>R$ {i.price},00</span>
                     </AdItem>
-                  </Link>
                 )}
               </MainContainer>
+            }
+            {ads.length == 0 &&
+              <EmptyContainer>
+                <h3>Nenhum anúncio ativo</h3>
+              </EmptyContainer>
             }
         </PageContainer>
         <Footer/>

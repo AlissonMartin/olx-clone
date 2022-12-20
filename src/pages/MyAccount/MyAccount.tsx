@@ -78,7 +78,7 @@ const MyAccount = () => {
   return (
     <>
       <Header/>
-      <PageContainer>
+      <PageContainer style={{minHeight: '80vh'}}>
         {error &&
           <ErrorMessage>{error}</ErrorMessage>
         }
