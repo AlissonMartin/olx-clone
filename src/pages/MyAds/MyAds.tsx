@@ -53,15 +53,15 @@ const MyAds = () => {
                         <div className='topBar'></div>
                         <div className='bottomBar'></div>
                       </DeleteButton>
-                      <img src={`http://localhost:5000/${i.image}`} onClick={()=> {navigate(`/ad/${i.id}`)}}/>
+                      <img src={`http://localhost:5000/${i.image}`} onClick={()=> {navigate(`/ad/${i.id}`)}} alt="imagem do anúncio"/>
                       <h3>{i.title}</h3> <span>R$ {i.price},00</span>
                     </AdItem>
                 )}
               </MainContainer>
             }
-            {ads.length == 0 &&
+            {ads.length === 0 &&
               <EmptyContainer>
-                <h3>Nenhum anúncio ativo</h3>
+                <h3>Nenhum anúncio encontrado</h3>
               </EmptyContainer>
             }
         </PageContainer>

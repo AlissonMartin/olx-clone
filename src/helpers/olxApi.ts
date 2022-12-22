@@ -11,7 +11,7 @@ const loginFetchPost = async(endpoint: string, body: {email:string, password:str
         }
     }
 
-    const formBody = new FormData
+    const formBody = new FormData()
     formBody.set('email',body.email)
     formBody.set('password',body.password)
 
