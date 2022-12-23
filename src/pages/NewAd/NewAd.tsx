@@ -92,35 +92,35 @@ const NewAd = () => {
         <FormsArea>
           <form onSubmit={handleSubmit}>
             <PageTitle>Crie um novo anúncio</PageTitle>
-            <LabelTitle>Título</LabelTitle>
+            <LabelTitle htmlFor='inputTitle'>Título</LabelTitle>
             <InputArea>
-              <Input type='text' disabled={disabled} value={title} onChange={e => setTitle(e.target.value)} required maxLength={25}></Input>
+              <Input type='text' disabled={disabled} value={title} onChange={e => setTitle(e.target.value)} required maxLength={25} id="inputTitle"></Input>
             </InputArea>
             <SelectInputArea>
-              <SelectInput onChange={e => setCategory(e.target.value)} required>
+              <SelectInput onChange={e => setCategory(e.target.value)} required >
                 <option value="">Selecione a categoria</option>
                 {categoryList.map((i, k) =>
-                  <option key={k} value={i.name}>{i.name}</option>
+                  <option key={k} value={i.name} data-testid={k}>{i.name}</option>
                 )}
               </SelectInput>
             </SelectInputArea>
-            <LabelTitle>Descrição</LabelTitle>
+            <LabelTitle htmlFor='inputDesc'>Descrição</LabelTitle>
             <InputArea>
-              <TextArea disabled={disabled} value={desc} onChange={e => setDesc(e.target.value)} required maxLength={350}></TextArea>
+              <TextArea disabled={disabled} value={desc} onChange={e => setDesc(e.target.value)} required maxLength={350} id="inputDesc"></TextArea>
             </InputArea>
-            <LabelTitle>Preço</LabelTitle>
+            <LabelTitle htmlFor='inputPrice'>Preço</LabelTitle>
             <InputArea>
               <MaskedInput mask={priceMask} placeholder="R$ " disabled={disabled} value={price} onChange={e => setPrice(e.target.value)} maxLength={12} />
             </InputArea>
             <LabelTitle>
               Negociar o preço?
               <InputArea>
-                <Input type='checkbox' disabled={disabled} checked={priceNegotiable} onChange={e => setPriceNegotiable(!priceNegotiable)} style={{ marginLeft: '16px' }}></Input>
+                <Input type='checkbox' disabled={disabled} checked={priceNegotiable} onChange={e => setPriceNegotiable(!priceNegotiable)} style={{ marginLeft: '16px' }} id="inputPrice"></Input>
               </InputArea>
             </LabelTitle>
-            <LabelTitle>Fotos (ao menos 1)</LabelTitle>
+            <LabelTitle htmlFor='inputFile'>Fotos (ao menos 1)</LabelTitle>
             <InputArea>
-              <Input type='file' ref={fileFieldRef} disabled={disabled} multiple required></Input>
+              <Input type='file' ref={fileFieldRef} disabled={disabled} multiple required id="inputFile"></Input>
             </InputArea>
             <SubmitButton type='submit' value='Adicionar anúncio'></SubmitButton>
           </form>

@@ -4,6 +4,7 @@ import ErrorMessage from '../../components/common/ErrorMessage'
 import {Link} from 'react-router-dom'
 import useApi from '../../helpers/olxApi'
 import { doLogin } from '../../helpers/AuthHandler'
+import logo from '../../assets/logo.png'
 
 const SignUp = () => {
     const api = useApi
@@ -44,11 +45,14 @@ const SignUp = () => {
         getStates()
     }, [])
   return (
-    <SignUpPage>
+    <SignUpPage style={{minHeight: '0'}}>
         {error &&
         <ErrorMessage>{error}</ErrorMessage>
         }
         <FormsArea>
+              <Link to={'/'}>
+                  <img src={logo} alt="logo" style={{ width: '80%', display: 'block', margin: 'auto' }} />
+              </Link>
             <form onSubmit={handleSubmit} method='POST'>
                 <SignUpTitle>Cadastro</SignUpTitle>
                   <LabelTitle>Apelido</LabelTitle>

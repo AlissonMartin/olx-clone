@@ -66,12 +66,12 @@ const AdPage = () => {
         <>
             <Header />
             <PageContainer style={{ padding: '10px' }}>
-                <h1>{adInfo.title}</h1>
+                <h1 data-testId='h1'>{adInfo.title}</h1>
                 <AdContainer>
                     <LeftSide>
                         <div className='bigPic'>
                             {loading && <Fake height={'450px'} />}
-                            <img src={`http://localhost:5000/${adInfo.images[imgIndex]}`} alt="" />
+                            <img src={`http://localhost:5000/${adInfo.images[imgIndex]}`} alt="" data-testId='bigPic'/>
                         </div>
                         <div className='smallPics' ref={imageRef}>
                             {adInfo.images?.map((i, k) =>
