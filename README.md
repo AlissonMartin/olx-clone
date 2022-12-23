@@ -14,3 +14,6 @@ In olhos. you are able to announce your products and buy new products.
 * NodeJS
    * ExpressJS
 * MySQL
+* Tests
+   * Jest
+   * React-Testing-Library
